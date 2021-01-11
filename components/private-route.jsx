@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useAuth } from "@nhost/react-auth";
 
 export function PrivateRoute(Component) {
-  return () => {
+  return (props) => {
     const router = useRouter();
     const { signedIn } = useAuth();
 
@@ -16,6 +16,6 @@ export function PrivateRoute(Component) {
       return <div>Redirecting...</div>;
     }
 
-    return <Component {...arguments} />;
+    return <Component {...props} />;
   };
 }
